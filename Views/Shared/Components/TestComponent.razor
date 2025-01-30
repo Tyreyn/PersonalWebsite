@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.Fast.Components.FluentUI
+
+<h3>Blazor Component in MVC</h3>
+<br />
+<br />
+
+<FluentButton @onclick="OnClick" Appearance="@Appearance.Accent">Click to get answer</FluentButton>
+<br />
+<br />
+
+<div>@Data </div>
+
+@code {
+
+    [Parameter]
+    public string Data { get; set; } = string.Empty;
+
+    private void OnClick()
+    {
+        Data = "Button Clicked";
+    }
+ }   

@@ -1,8 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@page
+@using Microsoft.Fast.Components.FluentUI
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div>
+        <FluentButton>Click to get answer</FluentButton>
+        @(await Html.RenderComponentAsync<PersonalWebsite.Views.Shared.Components.TestComponent>(RenderMode.ServerPrerendered, new { Data = " Hello World " }))
+    </div>
 </div>
