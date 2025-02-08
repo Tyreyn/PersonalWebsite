@@ -10,14 +10,19 @@
     <link rel="stylesheet" href="~/PersonalWebsite.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid" style="height:100vh; align-content:center;">
         <div class="row">
-            <div class="col">
-                <div class="card text-center">
-                    <div class="card-header">
-                        <a class="card-title" asp-area="" asp-controller="Home" asp-action="Index">Personal Website</a>
-                    </div>
+            <div class="col-4 align-self-center">
+                <div class="card text-center" style="align-items: center;">
+                    <h5 class="card-title">
+                        Michał Lewalski
+                    </h5>
                     <div class="card-body">
+                        <img src="..."
+                             style="border-radius: 100px; max-width: 100px;"
+                             onerror="this.onerror=null; this.src='https://static-00.iconduck.com/assets.00/person-icon-256x242-au2z2ine.png'"
+                             class="card-img-top img-fluid"
+                             alt="To ja :)" />
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <a class="card-text text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -27,19 +32,13 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="border-top card-llfooter text-muted">
-                        <div class="container">
-                            &copy; 2025 - PersonalWebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </div>
+                    <div class="border-top card-footer text-muted" style="padding-left: 0; padding-right: 0;">
+                        &copy; 2025 - PersonalWebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="container">
-                    <main role="main" class="pb-3">
-                        @RenderBody()
-                    </main>
-                </div>
+            <div class="col-8" style="height:90vh; overflow: auto; scrollbar-width: none;">
+                @RenderBody()
             </div>
         </div>
     </div>

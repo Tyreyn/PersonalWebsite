@@ -1,8 +1,8 @@
 ﻿@page
 @using Microsoft.Fast.Components.FluentUI
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+<div class="container text-center">
+    <h1 class="display-4">Welcome >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</h1>
     <div>
         <FluentButton>Click to get answer</FluentButton>
         @(await Html.RenderComponentAsync<PersonalWebsite.Views.Shared.Components.TestComponent>(RenderMode.ServerPrerendered, new { Data = " Hello World " }))
