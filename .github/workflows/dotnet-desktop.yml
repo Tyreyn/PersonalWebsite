@@ -34,7 +34,7 @@ jobs:
       working-directory: PersonalWebsiteTests
 
     - name: Publish
-      run: msbuild $env:Project_Name /p:DeployOnBuild=true /p:AllowUntrustedCertificate=true /p:UserName=${{ secrets.USERNAME }}; Password=${{ secrets.PASSWORD }} | sed 's/./& /g'; MSDeployServiceURL=${{ secrets.DEPLOYSERVICEURL }}; DeployIisAppPath=${{ secrets.IISAPPPATH }}
+      run: msbuild $env:Project_Name /p:DeployOnBuild=true /p:AllowUntrustedCertificate=true /p:UserName=${{ secrets.USERNAME }} /p:Password=${{ secrets.PASSWORD }} | sed 's/./& /g' /p:MSDeployServiceURL=${{ secrets.DEPLOYSERVICEURL }} /p:DeployIisAppPath=${{ secrets.IISAPPPATH }}
 
     - name: Building
       run: dotnet build
