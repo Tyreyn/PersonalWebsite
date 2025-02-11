@@ -6,152 +6,152 @@
 	"LinkedinUrl": "https://www.linkedin.com/in/michał-lewalski/",
 	"GithubUrl": "https://github.com/Tyreyn",
 	"Skills": {
-		"ProgrammingLanguages": {
-			"Language": {
+		"ProgrammingLanguages": [
+			{
 				"Name": "C#",
 				"PictureUrl": "",
 				"Proficiency": "7"
 			},
-			"Language": {
+			{
 				"Name": "Java",
 				"PictureUrl": "",
 				"Proficiency": "3"
 			},
-			"Language": {
+			{
 				"Name": "JavaScript",
 				"PictureUrl": "",
 				"Proficiency": "3"
 			},
-			"Language": {
+			{
 				"Name": "Python",
 				"PictureUrl": "",
 				"Proficiency": "3"
 			},
-			"Language": {
+			{
 				"Name": "C/C++",
 				"PictureUrl": "",
 				"Proficiency": "3"
 			}
-		},
-		"ToolsFrameworks": {
-			"ToolFramework": {
+		],
+		"ToolsFrameworks": [
+			{
 				"Name": "React",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Blazor",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "HTML",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "CSS",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "ASP.NET",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Spring Boot",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Unity",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Git",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Github Actions",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Swagger",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "MongoDB",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "MySQL",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Microsoft SQL Server",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Nunit",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "xUnit",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Playwright",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Selenium",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Entity Framework",
-				"PictureUrl": "",
+				"PictureUrl": ""
 			},
-			"ToolFramework": {
+			{
 				"Name": "Dapper",
-				"PictureUrl": "",
-			},
-		},
+				"PictureUrl": ""
+			}
+		]
 	},
-	"ProfessionalExperience": {
-		"Job": {
+	"ProfessionalExperience": [
+		{
 			"Position": "Junior Test Development Engineer",
 			"StartDate": "April 2021",
 			"EndDate": "November 2023",
-			"Company" : "SII Poland",
-			"BPoints" :{
-				"Point": "Designed, developed and executed automated test scripts in C#.",
-				"Point": "Wrote and implemented changes in Python scripts that were necessary for C# test scripts.",
-				"Point": "Implemented tests automation fixes in C#.",
-				"Point": "Prepared dualOS/multiOS disks for required need.",
-				"Point": "Worked in scrum methodology.",
-				"Point": "Managed test suites and prepared weekly test report results.",
-			},
+			"Company": "SII Poland",
+			"BPoints": [
+				"Designed, developed and executed automated test scripts in C#.",
+				"Wrote and implemented changes in Python scripts that were necessary for C# test scripts.",
+				"Implemented tests automation fixes in C#.",
+				"Prepared dualOS/multiOS disks for required need.",
+				"Worked in scrum methodology.",
+				"Managed test suites and prepared weekly test report results."
+			]
 		},
-		"Job": {
+		{
 			"Position": "Unity 3D Developer internship",
 			"StartDate": "July 2020",
 			"EndDate": "September 2020",
-			"Company" : "Immersive 3D Visualization lab, Gdańsk University of Technology",
-			"BPoints" :{
-				"Point": "Created animation of the prepared machine model.",
-				"Point": "Prepared basic functionalities (for example moving, looking, interactions).",
-			},
+			"Company": "Immersive 3D Visualization lab, Gdańsk University of Technology",
+			"BPoints": [
+				"Created animation of the prepared machine model.",
+				"Prepared basic functionalities (for example moving, looking, interactions)."
+			]
 		}
-	},
-	"Education": {
-		"Studies": {
-			"UniversityName":"Gdańsk University of Technology",
-			"StartDate" : "2021",
-			"EndDate" : "2022",
-			"Description":"Master of Engineering. Specialization: Computer Electronic Systems. Complementary specialization: Optoelectronics.",
-			"Thesis":"Driver assistance system in recognition of road signs (designed and tested android application which recognize drive signs with Yolov5).",
+	],
+	"Education": [
+		{
+			"UniversityName": "Gdańsk University of Technology",
+			"StartDate": "2021",
+			"EndDate": "2022",
+			"Description": "Master of Engineering. Specialization: Computer Electronic Systems. Complementary specialization: Optoelectronics.",
+			"Thesis": "Driver assistance system in recognition of road signs (designed and tested android application which recognize drive signs with Yolov5)."
 		},
-		"Studies": {
-			"UniversityName":"Gdańsk University of Technology",
-			"StartDate" : "2017",
-			"EndDate" : "2021",
-			"Description":"Bachelor of Engineering, stream: Microelectronic Systems.",
-			"Thesis":"LED controller with adjustablebrightness (designed and tested PCB board for controlling 1W LED).",
-		},
-	}
+		{
+			"UniversityName": "Gdańsk University of Technology",
+			"StartDate": "2017",
+			"EndDate": "2021",
+			"Description": "Bachelor of Engineering, stream: Microelectronic Systems.",
+			"Thesis": "LED controller with adjustable brightness (designed and tested PCB board for controlling 1W LED)."
+		}
+	]
 }

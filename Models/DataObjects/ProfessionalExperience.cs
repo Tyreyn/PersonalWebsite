@@ -1,6 +1,6 @@
-﻿namespace PersonalWebsite.DataTransferObject.DataObjects
+﻿namespace PersonalWebsite.Models.DataObjects
 {
-    public class Job
+    public class ProfessionalExperience
     {
         public string Position { get; set; }
 
@@ -10,7 +10,6 @@
 
         public string Company { get; set; }
 
-        public virtual BPoints BPoints { get; set; }
-
+        public virtual IList<string> BPoints { get; set; }
     }
 }

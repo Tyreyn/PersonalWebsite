@@ -1,10 +1,19 @@
-﻿@page
-@using Microsoft.Fast.Components.FluentUI
+﻿@using System.Text
+@using PersonalWebsite.Models.DataObjects
+@model PersonalInformationModel
 
-<div class="container text-center">
-    <h1 class="display-4">Welcome >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</h1>
-    <div>
-        <FluentButton>Click to get answer</FluentButton>
-        @(await Html.RenderComponentAsync<PersonalWebsite.Views.Shared.Components.TestComponent>(RenderMode.ServerPrerendered, new { Data = " Hello World " }))
-    </div>
+<div class="card bg-primary text-white" style="height:100%; margin:auto; justify-content:space-evenly;  overflow: auto; scrollbar-width: none;">
+    <h1>Skills</h1>
+    <h5>@ViewData["ProgrammingLanguage"]</h5>
+    <h5>@ViewData["ToolFramework"]</h5>
+    <h1>Professional experience</h1>
+    @foreach (var videoGame in Model.ProfessionalExperience)
+    {
+        <h3>@videoGame.Company</h3>
+    }
+    <h1>Education</h1>
+    @foreach (var videoGame in Model.Education)
+    {
+        <h3>@videoGame.UniversityName</h3>
+    }
 </div>

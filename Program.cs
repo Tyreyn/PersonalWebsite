@@ -1,9 +1,13 @@
+using Microsoft.Fast.Components.FluentUI;
+using PersonalWebsite.Services.FileManagement;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<JsonFileService>();
 
 var app = builder.Build();
 

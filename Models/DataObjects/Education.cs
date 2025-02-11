@@ -1,6 +1,6 @@
-﻿namespace PersonalWebsite.DataTransferObject.DataObjects
+﻿namespace PersonalWebsite.Models.DataObjects
 {
-    public class Studies
+    public class Education
     {
         public string UniversityName { get; set; }
 

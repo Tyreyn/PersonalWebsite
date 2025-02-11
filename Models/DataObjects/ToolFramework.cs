@@ -1,4 +1,4 @@
-﻿namespace PersonalWebsite.DataTransferObject.DataObjects
+﻿namespace PersonalWebsite.Models.DataObjects
 {
     public class ToolFramework
     {

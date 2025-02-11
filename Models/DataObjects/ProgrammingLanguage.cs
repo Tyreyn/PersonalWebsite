@@ -1,6 +1,6 @@
-﻿namespace PersonalWebsite.DataTransferObject.DataObjects
+﻿namespace PersonalWebsite.Models.DataObjects
 {
-    public class Language
+    public class ProgrammingLanguage
     {
         public string Name { get; set; }
 
