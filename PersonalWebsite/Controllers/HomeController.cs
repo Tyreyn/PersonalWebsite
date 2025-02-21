@@ -23,11 +23,19 @@ namespace PersonalWebsite.Controllers
         public IActionResult Index()
         {
             PersonalInformationModel personalInformationModel = this.jsonFileService.GetPersonalInformationFromFile();
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder("<h5>");
             foreach (ProgrammingLanguage pl in personalInformationModel.Skills.ProgrammingLanguages)
             {
-                stringBuilder.Append(pl.Name + " Proficiency" + pl.Proficiency + ", ");
+                StringBuilder ratingStringBuilder = new StringBuilder();
+                int tmp = int.Parse(pl.Proficiency);
+                for(int i = 0; i < 10; i++)
+                {
+                    ratingStringBuilder.Append(tmp > 0 ? "<span class=\"bi bi-circle-fill\"></span>\r\n" : "<span class=\"bi bi-circle\"></span>\r\n");
+                    tmp--;
+                }
+                stringBuilder.Append(pl.Name + " Proficiency " + ratingStringBuilder.ToString() + "<br></br>");
             }
+            stringBuilder.Append("</h5>");
             ViewData["ProgrammingLanguage"] = stringBuilder.ToString();
             stringBuilder.Clear();
             foreach (ToolFramework tf in personalInformationModel.Skills.ToolsFrameworks)

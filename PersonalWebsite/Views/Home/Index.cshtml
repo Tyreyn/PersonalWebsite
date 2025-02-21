@@ -2,18 +2,30 @@
 @using PersonalWebsite.Models.DataObjects
 @model PersonalInformationModel
 
-<div class="card bg-primary text-white" style="height:100%; margin:auto; justify-content:space-evenly;  overflow: auto; scrollbar-width: none;">
-    <h1>Skills</h1>
-    <h5>@ViewData["ProgrammingLanguage"]</h5>
-    <h5>@ViewData["ToolFramework"]</h5>
-    <h1>Professional experience</h1>
-    @foreach (var videoGame in Model.ProfessionalExperience)
-    {
-        <h3>@videoGame.Company</h3>
-    }
-    <h1>Education</h1>
-    @foreach (var videoGame in Model.Education)
-    {
-        <h3>@videoGame.UniversityName</h3>
-    }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+
+<div class="card" style="height:100%; background-color: var(--secbackground); margin:auto; justify-content:space-evenly;  overflow: auto; scrollbar-width: none;">
+    <div class="card index">
+        <h1>Skills</h1>
+        <h5>@Html.Raw(ViewData["ProgrammingLanguage"])</h5>
+        <h5>@ViewData["ToolFramework"]</h5>
+    </div>
+
+    <div class="card index">
+        <h1>Professional experience</h1>
+        @foreach (var videoGame in Model.ProfessionalExperience)
+        {
+            <p>@videoGame.Company</p>
+        }
+    </div>
+
+    <div class="card index">
+        <h1>Education</h1>
+        @foreach (var videoGame in Model.Education)
+        {
+            <p>@videoGame.UniversityName</p>
+        }
+    </div>
+
 </div>

@@ -5,8 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddServerSideBlazor();
-builder.Services.AddRazorPages();
 builder.Services.AddSingleton<JsonFileService>();
 
 var app = builder.Build();
@@ -30,7 +28,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-app.MapBlazorHub();
-app.MapRazorPages();
 
 app.Run();

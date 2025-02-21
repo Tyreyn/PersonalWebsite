@@ -1,40 +1,350 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}
-
-:root::-webkit-scrollbar {
-    display: none;
-}
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,900);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
 
 :root {
+    --text: hsl(0, 0%, 99%);
+    --textDim: hsl(0, 0%, 60%);
+    --background: hsl(0, 0%, 7%);
+    --secbackground: hsl(205, 0%, 0%, 0,00);
+    --primary: rgb(34, 40, 49);
+    --primaryBg: hsl(0, 0%, 7%, 30%);
+    --primaryHi: hsl(216, 100%, 75%, 0,25);
+    --primaryFg: hsl(155, 100%, 85%);
+    --secondary: hsl(156, 51%, 14%);
+    --secondaryFg: hsl(156, 51%, 75%);
+    --secondaryBg: hsla(156, 51%, 14%, 5%);
+    --secondaryHi: hsla(156, 51%, 30%, 50%);
+    --accent: hsl(155, 100%, 94%);
+    --accentBg: hsla(155, 100%, 94%, 1%);
+    --accentHi: hsla(155, 100%, 100%, 25%);
+    --bs-card-title-color: rgb(118, 171, 174);
+}
+
+body, html {
+    font-family: 'Manrope';
+    font-weight: 400;
+    overflow: hidden;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, rgba(49, 54, 63, 100%) 25%, rgba(118, 171, 174, 50%) 100%);
+}
+
+li.list-group-item {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background: var(--accent);
+}
+
+li.list-group-item:first-child {
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+li.list-group-item:hover > span {
+    opacity: 60%;
+}
+
+div.card {
+    background: center;
+    background-color: var(--primaryBg);
+    box-shadow: 0px -3px 15px 0px var(--primaryHi) inset;
+    color: var(--primaryFg);
+    font-family: "Manrope";
+    font-size: 1rem;
+    backdrop-filter: blur( 1px );
+    transition: all 0.2s ease;
+}
+
+div.index {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    justify-content: space-evenly;
+    overflow: auto;
     scrollbar-width: none;
-    -ms-overflow-style: none;
+}
+
+@media only screen and (max-width: 860px) {
+    .card {
+        flex-direction: column;
+        margin: 10px;
+        height: auto;
+        width: 90%;
+    }
+
+    .left-container {
+        flex: 1;
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .left-container {
+        flex: 1;
+        max-width: 100%;
+    }
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    border-radius: 50%;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1 {
+    color: rgb(118, 171, 174);
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.gradienttext {
+    background-image: linear-gradient(to right, #ee00ff 0%, #fbff00 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: rgb(238, 238, 238)
+}
+
+.light {
+    position: absolute;
+    width: 0px;
+    opacity: .75;
+    background-color: #EEEEEE;
+    box-shadow: #76ABAE 0px 0px 20px 2px;
+    opacity: 0;
+    top: 100vh;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+}
+
+.x1 {
+    -webkit-animation: floatUp 4s infinite linear;
+    -moz-animation: floatUp 4s infinite linear;
+    -o-animation: floatUp 4s infinite linear;
+    animation: floatUp 4s infinite linear;
+    -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
+    -o-transform: scale(1.0);
+    transform: scale(1.0);
+}
+
+.x2 {
+    -webkit-animation: floatUp 7s infinite linear;
+    -moz-animation: floatUp 7s infinite linear;
+    -o-animation: floatUp 7s infinite linear;
+    animation: floatUp 7s infinite linear;
+    -webkit-transform: scale(1.6);
+    -moz-transform: scale(1.6);
+    -o-transform: scale(1.6);
+    transform: scale(1.6);
+    left: 15%;
+}
+
+.x3 {
+    -webkit-animation: floatUp 2.5s infinite linear;
+    -moz-animation: floatUp 2.5s infinite linear;
+    -o-animation: floatUp 2.5s infinite linear;
+    animation: floatUp 2.5s infinite linear;
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -o-transform: scale(.5);
+    transform: scale(.5);
+    left: -15%;
+}
+
+.x4 {
+    -webkit-animation: floatUp 4.5s infinite linear;
+    -moz-animation: floatUp 4.5s infinite linear;
+    -o-animation: floatUp 4.5s infinite linear;
+    animation: floatUp 4.5s infinite linear;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    left: -34%;
+}
+
+.x5 {
+    -webkit-animation: floatUp 8s infinite linear;
+    -moz-animation: floatUp 8s infinite linear;
+    -o-animation: floatUp 8s infinite linear;
+    animation: floatUp 8s infinite linear;
+    -webkit-transform: scale(2.2);
+    -moz-transform: scale(2.2);
+    -o-transform: scale(2.2);
+    transform: scale(2.2);
+    left: -57%;
+}
+
+.x6 {
+    -webkit-animation: floatUp 3s infinite linear;
+    -moz-animation: floatUp 3s infinite linear;
+    -o-animation: floatUp 3s infinite linear;
+    animation: floatUp 3s infinite linear;
+    -webkit-transform: scale(.8);
+    -moz-transform: scale(.8);
+    -o-transform: scale(.8);
+    transform: scale(.8);
+    left: -81%;
+}
+
+.x7 {
+    -webkit-animation: floatUp 5.3s infinite linear;
+    -moz-animation: floatUp 5.3s infinite linear;
+    -o-animation: floatUp 5.3s infinite linear;
+    animation: floatUp 5.3s infinite linear;
+    -webkit-transform: scale(3.2);
+    -moz-transform: scale(3.2);
+    -o-transform: scale(3.2);
+    transform: scale(3.2);
+    left: 37%;
+}
+
+.x8 {
+    -webkit-animation: floatUp 4.7s infinite linear;
+    -moz-animation: floatUp 4.7s infinite linear;
+    -o-animation: floatUp 4.7s infinite linear;
+    animation: floatUp 4.7s infinite linear;
+    -webkit-transform: scale(1.7);
+    -moz-transform: scale(1.7);
+    -o-transform: scale(1.7);
+    transform: scale(1.7);
+    left: 62%;
+}
+
+.x9 {
+    -webkit-animation: floatUp 4.1s infinite linear;
+    -moz-animation: floatUp 4.1s infinite linear;
+    -o-animation: floatUp 4.1s infinite linear;
+    animation: floatUp 4.1s infinite linear;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+    left: 85%;
+}
+
+@-webkit-keyframes floatUp {
+    0% {
+        top: 100vh;
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        top: 0vh;
+        opacity: .8;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        top: -100vh;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes floatUp {
+    0% {
+        top: 100vh;
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        top: 0vh;
+        opacity: .8;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        top: -100vh;
+        opacity: 0;
+    }
+}
+
+@-o-keyframes floatUp {
+    0% {
+        top: 100vh;
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        top: 0vh;
+        opacity: .8;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        top: -100vh;
+        opacity: 0;
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        top: 100vh;
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        top: 0vh;
+        opacity: .8;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        top: -100vh;
+        opacity: 0;
+    }
 }
