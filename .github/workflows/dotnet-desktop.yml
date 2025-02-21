@@ -1,0 +1,37 @@
+name: Build, test and deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug]
+    runs-on: windows-latest
+    env:
+      Solution_Name: PersonalWebsite/PersonalWebsite.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      Project_Name: PersonalWebsite/PersonalWebsite.csproj
+      Test_Project_Path: PersonalWebsiteTests/PersonalWebsiteTests.csproj                # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 9.0.x
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Restore the application
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
+    - name: Execute backend unit tests
+      run: dotnet test
+      working-directory: PersonalWebsiteTests
+
+    - name: Publish
+      run: msbuild $env:Project_Name /p:WebPublishMethod=MSDeploy /p:DeployOnBuild=true /p:AllowUntrustedCertificate=true /p:UserName=${{ secrets.USERNAME }} /p:Password=${{ secrets.PASSWORD }} /p:MsDeployServiceUrl=${{ secrets.DEPLOYSERVICEURL }} /p:DeployIISAppPath=${{ secrets.IISAPPPATH }}       
