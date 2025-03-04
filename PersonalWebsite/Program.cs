@@ -1,11 +1,13 @@
 using Microsoft.Fast.Components.FluentUI;
 using PersonalWebsite.Services.FileManagement;
+using PersonalWebsite.Services.GithubApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<JsonFileService>();
+builder.Services.AddSingleton<RepositoryDownloaderService>();
 
 var app = builder.Build();
 

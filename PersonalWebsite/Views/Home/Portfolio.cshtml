@@ -1,0 +1,26 @@
+﻿<div class="card main">
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    let currentIndex = 0;
+
+    $(document).ready(function() {
+        loadNextItem();
+    });
+
+    function loadNextItem() {
+        $.get('@Url.Action("GetDynamicContent", "Home")', { index: currentIndex }, function(html) {
+            if (html.trim() === "") {
+                $('.card.main').text('Wszystkie dane załadowane!');
+            } else {
+                $('.card.main').append(html);
+                currentIndex++;
+                setTimeout(loadNextItem, 500);
+            }
+        }).fail(function() {
+            $('#loading-info').text('Błąd przy ładowaniu danych.');
+        });
+    }
+</script>

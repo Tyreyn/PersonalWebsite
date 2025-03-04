@@ -35,14 +35,14 @@ li.list-group-item {
     background: var(--accent);
 }
 
-li.list-group-item:first-child {
-    font-weight: bold;
-    margin-bottom: 1px;
-}
+    li.list-group-item:first-child {
+        font-weight: bold;
+        margin-bottom: 1px;
+    }
 
-li.list-group-item:hover > span {
-    opacity: 60%;
-}
+    li.list-group-item:hover > span {
+        opacity: 60%;
+    }
 
 div.card {
     background: center;
@@ -55,44 +55,22 @@ div.card {
     transition: all 0.2s ease;
 }
 
-div.index {
+div.main {
     height: 100%;
-    width: 100%;
+    background-color: var(--secbackground);
     margin: auto;
     justify-content: space-evenly;
     overflow: auto;
     scrollbar-width: none;
 }
 
-@media only screen and (max-width: 860px) {
-    .card {
-        flex-direction: column;
-        margin: 10px;
-        height: auto;
-        width: 90%;
-    }
-
-    .left-container {
-        flex: 1;
-        max-width: 100%;
-    }
+div.index {
+    width: 100%;
+    margin: auto;
+    justify-content: space-evenly;
 }
 
-@media only screen and (max-width: 600px) {
-    .card {
-        flex-direction: column;
-        margin: 10px;
-    }
-
-    .left-container {
-        flex: 1;
-        max-width: 100%;
-    }
-}
-
-img {
-    width: 200px;
-    height: 200px;
+img.profile {
     max-width: 200px;
     border-radius: 50%;
     margin: 10px;
@@ -101,18 +79,30 @@ img {
 
 h1 {
     color: rgb(118, 171, 174);
-    font-size: 24px;
-    margin-bottom: 5px;
+    font-size: 16px;
 }
 
 h2 {
+    color: rgb(140, 203, 207);
+    font-size: 18px;
+}
+
+h3 {
+    color: rgb(140, 203, 207);
+    text-align: left;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+h4 {
+    color: rgb(140, 203, 207);
     font-size: 24px;
     margin-bottom: 5px;
 }
 
-h3 {
-    text-align: center;
-    font-size: 24px;
+h5 {
+    color: rgb(118, 171, 174);
+    font-size: 26px;
     margin-bottom: 5px;
 }
 
@@ -247,6 +237,32 @@ p {
     -o-transform: scale(0.9);
     transform: scale(0.9);
     left: 85%;
+}
+
+@media only screen and (max-width: 860px) {
+    .card {
+        flex-direction: column;
+        margin: 10px;
+        height: auto;
+        width: 90%;
+    }
+
+    .left-container {
+        flex: 1;
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .left-container {
+        flex: 1;
+        max-width: 100%;
+    }
 }
 
 @-webkit-keyframes floatUp {
