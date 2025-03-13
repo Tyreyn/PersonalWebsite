@@ -8,6 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<JsonFileService>();
 builder.Services.AddSingleton<RepositoryDownloaderService>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = "Information";
+    options.IdleTimeout = TimeSpan.FromDays(1);
+    options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -24,6 +33,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseSession();
 app.MapStaticAssets();
 
 app.MapControllerRoute(

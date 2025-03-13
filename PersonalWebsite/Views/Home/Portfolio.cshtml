@@ -6,21 +6,39 @@
 <script>
     let currentIndex = 0;
 
+    let convertedReadme = '';
+
     $(document).ready(function() {
         loadNextItem();
     });
 
     function loadNextItem() {
-        $.get('@Url.Action("GetDynamicContent", "Home")', { index: currentIndex }, function(html) {
-            if (html.trim() === "") {
-                $('.card.main').text('Wszystkie dane załadowane!');
-            } else {
-                $('.card.main').append(html);
-                currentIndex++;
-                setTimeout(loadNextItem, 500);
+        let readmeValue = "";
+
+        $.get('@Url.Action("LoadReadmePartial", "Home")', function(partialView) {
+            readmeValue = partialView;
+            if(readmeValue !== "")
+            {
+                $('.card.main').append(partialView);
             }
-        }).fail(function() {
-            $('#loading-info').text('Błąd przy ładowaniu danych.');
+            else
+            {
+                $.get('@Url.Action("GetDynamicContent", "Home")', { index: currentIndex }, function(html) {
+                    if (html.trim() === "") {
+                        $.post('@Url.Action("SetReadmeCookie", "Home")', { convertedReadme: convertedReadme });
+                    }
+                    else
+                    {
+                        convertedReadme += html;
+                        $('.card.main').append(html);
+                        currentIndex++;
+                        loadNextItem();
+                    }
+                }).fail(function() {
+                    $('#loading-info').text('Błąd przy ładowaniu danych.');
+                });
+            }
         });
     }
+
 </script>
