@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.FileSystemGlobbing.Internal;
+using Microsoft.Extensions.Primitives;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -8,12 +9,15 @@ namespace PersonalWebsite.Helpers
     {
         public static string Convert(string readmeString, string repoName)
         {
+            bool isCode = false;
             StringBuilder sb = new StringBuilder("<div class=\"card index\">");
-            if (readmeString == null) return "<span>TBD</span>";
+            if (readmeString == null) return "<span></span>";
             string[] splittedReadme = SplitByLane(readmeString);
             foreach (string line in splittedReadme)
             {
-                if (line.Contains("#"))
+                if (line == "") continue;
+
+                if (line.StartsWith("#"))
                 {
                     int headCount = CheckForHeader(line);
                     sb.Append($"<h{headCount}>{line.Replace("#", string.Empty)}</h{headCount}>");
@@ -22,9 +26,14 @@ namespace PersonalWebsite.Helpers
                 {
                     sb.Append(CheckForNewImage(line, repoName));
                 }
+                else if (line.StartsWith("```"))
+                {
+                    isCode = !isCode;
+                    sb.Append(isCode ? "<pre><code>" : "</pre></code>\r\n");
+                }
                 else
                 {
-                    sb.Append($"<span>{line}<span>");
+                    sb.Append(isCode ? $"{line}\r\n" : $"<span>{line}</span>");
                 }
             }
             sb.Append("</div>");
@@ -57,7 +66,7 @@ namespace PersonalWebsite.Helpers
         {
             Regex rgx = new Regex("[\\w]+\\.[\"png\"|\"jpg\"]+");
             Match match = rgx.Match(line);
-            return string.Format($"<img src=\"https://raw.githubusercontent.com/Tyreyn/{repoName}/main/{match.Value}\" width=20% height=20%>\r\n");
+            return string.Format($"<img class=\"readmeImg\" src=\"https://raw.githubusercontent.com/Tyreyn/{repoName}/main/{match.Value}\">");
         }
     }
 }
