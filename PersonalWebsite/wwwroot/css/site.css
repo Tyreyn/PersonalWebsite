@@ -323,7 +323,8 @@ p {
 @media only screen and (max-width: 860px) {
 
     .container-fluid {
-        height: auto;
+        overflow: auto;
+        display: block;
     }
 
     .row {
@@ -382,12 +383,16 @@ p {
     }
 
     div.main {
-        padding: 0px;
+        padding: 2px;
         word-wrap: break-word;
     }
 
     div.index{
-        padding: 0px;
+        padding: 2px;
+    }
+
+    body{
+        overflow: hidden;
     }
 }
 
