@@ -322,7 +322,7 @@ p {
 
 @media only screen and (max-width: 860px) {
 
-    .container-fluid {
+    .center-card {
         overflow: auto;
         display: block;
     }
@@ -334,6 +334,10 @@ p {
 
     .col-4, .col-8 {
         width: 100%;
+    }
+
+    .col-8{
+        height: 90vh;
     }
 
     span {
@@ -387,8 +391,9 @@ p {
         word-wrap: break-word;
     }
 
-    div.index{
+    div.index {
         padding: 2px;
+        overflow: visible;
     }
 
     body{
