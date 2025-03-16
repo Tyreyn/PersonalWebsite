@@ -204,6 +204,10 @@ p {
     margin: auto;
 }
 
+.col-8 {
+    height: 90vh;
+}
+
 .x1 {
     -webkit-animation: floatUp 4s infinite linear;
     -moz-animation: floatUp 4s infinite linear;
@@ -334,10 +338,6 @@ p {
 
     .col-4, .col-8 {
         width: 100%;
-    }
-
-    .col-8{
-        height: 90vh;
     }
 
     span {
