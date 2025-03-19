@@ -79,7 +79,11 @@ namespace PersonalWebsite.Controllers
             Repos = JsonSerializer.Deserialize<List<Repositories>>(HttpContext.Session.GetString(repositoryCookieKey));
             if (index < Repos.Count)
             {
-                string convertedReadmeString = ReadmeMdToHtmlConverter.Convert(this.repositoryDownloader.DownloadReadme(Repos[index].name).Result, Repos[index].name);
+                string convertedReadmeString = ReadmeMdToHtmlConverter.Convert(
+                    this.repositoryDownloader.DownloadReadme(Repos[index].name).Result,
+                    Repos[index].name,
+                    this.repositoryDownloader.DownloadLanguages(Repos[index].languages_url).Result,
+                    Repos[index].description);
                 ConvertedReadmeList.Add(convertedReadmeString);
                 ViewBag.ConvertedReadme = convertedReadmeString;
                 Console.WriteLine(index);

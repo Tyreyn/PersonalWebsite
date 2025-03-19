@@ -2,22 +2,23 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 
 :root {
-    --text: hsl(0, 0%, 99%);
-    --textDim: hsl(0, 0%, 60%);
-    --background: hsl(0, 0%, 7%);
-    --secbackground: hsl(205, 0%, 0%, 0,00);
+    --text: rgba(0, 0, 0, 1);
+    --textDim: rgba(153, 153, 153, 1);
+    --background: rgba(18, 18, 18, 1);
+    --secbackground: rgba( 255, 255, 255, 0.25 );
     --primary: rgb(34, 40, 49);
-    --primaryBg: hsl(0, 0%, 7%, 30%);
-    --primaryHi: hsl(216, 100%, 75%, 0,25);
-    --primaryFg: hsl(155, 100%, 85%);
-    --secondary: hsl(156, 51%, 14%);
-    --secondaryFg: hsl(156, 51%, 75%);
-    --secondaryBg: hsla(156, 51%, 14%, 5%);
-    --secondaryHi: hsla(156, 51%, 30%, 50%);
-    --accent: hsl(155, 100%, 94%);
-    --accentBg: hsla(155, 100%, 94%, 1%);
-    --accentHi: hsla(155, 100%, 100%, 25%);
+    --primaryBg: rgba(18, 18, 18, 0.3);
+    --primaryHi: rgba(102, 179, 255, 0.25);
+    --primaryFg: rgb(255, 255, 255);
+    --secondary: rgb(17, 38, 29);
+    --secondaryFg: rgb(102, 173, 140);
+    --secondaryBg: rgba(17, 38, 29, 0.05);
+    --secondaryHi: rgba(30, 76, 57, 0.5);
+    --accent: rgb(217, 255, 240);
+    --accentBg: rgba(217, 255, 240, 0.01);
+    --accentHi: rgba(255, 255, 255, 0.25);
     --bs-card-title-color: rgb(118, 171, 174);
+    --light-color: rgba( 255, 255, 255, 0.25 );
 }
 
 body, html {
@@ -25,7 +26,7 @@ body, html {
     font-weight: 400;
     overflow: hidden;
     height: 100%;
-    background: radial-gradient(ellipse at bottom, rgba(49, 54, 63, 1) 25%, rgba(118, 171, 174, 0.5) 100%);
+    background: radial-gradient(ellipse at bottom, var(--primary) 25%, var(--primaryBg) 100%);
     color: var(--text);
 }
 
@@ -33,6 +34,10 @@ ul.list-group {
     align-items: center;
     width: 100%;
     display: flex;
+}
+
+.accordion-button {
+    background: var(--background);
 }
 
 
@@ -72,14 +77,16 @@ li.list-group-item {
     align-items: center;
     padding: 20px;
     border-radius: 12px;
-    background: var(--primaryBg);
+    background: var(--secbackground) !important;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 div.card {
     background: var(--primaryBg);
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
     color: var(--primaryFg);
     font-family: 'Roboto';
     font-size: 1rem;
@@ -90,7 +97,6 @@ div.card {
 }
 
 div.main {
-    height: 100%;
     background-color: var(--secbackground);
     margin: auto;
     display: flex;
@@ -99,11 +105,11 @@ div.main {
     scrollbar-width: none;
     position: relative;
     padding: 30px 10px;
+    height: 100%;
 }
 
 div.index {
     width: 100%;
-    margin: auto;
     display: flex;
     justify-content: space-evenly;
     box-sizing: border-box;
@@ -150,30 +156,30 @@ code {
 }
 
 h1 {
-    color: rgb(118, 171, 174);
+    color: rgb(255, 255, 255);
     font-size: 26px;
 }
 
 h2 {
-    color: rgb(140, 203, 207);
+    color: rgb(255, 255, 255);
     font-size: 24px;
 }
 
 h3 {
-    color: rgb(140, 203, 207);
+    color: rgb(255, 255, 255);
     text-align: left;
     font-size: 22px;
     margin-bottom: 5px;
 }
 
 h4 {
-    color: rgb(140, 203, 207);
+    color: rgb(255, 255, 255);
     font-size: 20px;
     margin-bottom: 5px;
 }
 
 h5 {
-    color: rgb(118, 171, 174);
+    color: rgb(255,255,255) !important;
     font-size: 18px;
     margin-bottom: 5px;
 }
@@ -194,8 +200,8 @@ p {
     position: absolute;
     width: 0px;
     opacity: .75;
-    background-color: #EEEEEE;
-    box-shadow: #76ABAE 0px 0px 20px 2px;
+    background-color: var(--light-color);
+    box-shadow: var(--light-color) 0px 0px 20px 2px;
     opacity: 0;
     top: 100vh;
     bottom: 0px;
@@ -206,6 +212,10 @@ p {
 
 .col-8 {
     height: 90vh;
+}
+
+.row {
+    width: -webkit-fill-available;
 }
 
 .x1 {

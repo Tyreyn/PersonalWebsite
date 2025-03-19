@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using AngleSharp.Dom;
+using Newtonsoft.Json;
 using PersonalWebsite.Models.DataObjects;
 using System.Net.Http.Headers;
 
@@ -27,6 +28,15 @@ namespace PersonalWebsite.Services.GithubApi
             string response = await GetResponseFromApi(url);
             return response;
         }
+
+        public async Task<IList<string>> DownloadLanguages(string url)
+        {
+            string response = await GetResponseFromApi(url);
+            Dictionary<string, int> dictionary = JsonConvert.DeserializeObject<Dictionary<string, int>>(response);
+
+            return dictionary.Keys.ToList();
+        }
+
 
         private async Task<string> GetResponseFromApi(string url)
         {

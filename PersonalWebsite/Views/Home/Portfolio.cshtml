@@ -1,4 +1,5 @@
 ﻿<div class="card main">
+    <div class="accordion" id="accordionPanels"></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -19,7 +20,7 @@
             readmeValue = partialView;
             if(readmeValue !== "")
             {
-                $('.card.main').append(partialView);
+                $('.accordion').append(partialView);
             }
             else
             {
@@ -30,7 +31,7 @@
                     else
                     {
                         convertedReadme += html;
-                        $('.card.main').append(html);
+                        $('.accordion').append(html);
                         currentIndex++;
                         loadNextItem();
                     }

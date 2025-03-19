@@ -7,10 +7,23 @@ namespace PersonalWebsite.Helpers
 {
     public static class ReadmeMdToHtmlConverter
     {
-        public static string Convert(string readmeString, string repoName)
+        public static string Convert(string readmeString, string repoName, IList<string> repoLanguages, string description)
         {
             bool isCode = false;
-            StringBuilder sb = new StringBuilder("<div class=\"card index\">");
+            StringBuilder sb = new StringBuilder("<div class=\"accordion-item\">");
+            sb.Append("<h2 class=\"accordion-header\">" +
+                "<button class=\"accordion-button collapsed\" " +
+                "type=\"button\" " +
+                "data-bs-toggle=\"collapse\" " +
+                $"data-bs-target=\"#{repoName}\" " +
+                "aria-expanded=\"false\" " +
+                $"aria-controls=\"{repoName}\">" +
+                $"<div class=\"container text-center\">" +
+                $"<div class=\"row\"><h1 class=\"col-4\">{repoName}</h1></div> <div><h5 class=\".text-muted col-8\">{string.Join(", ", repoLanguages)} </h5></div>" +
+                $"<div class=\"row\">{description}</div>" +
+                $"</div>" +
+                "</button></h2>");
+            sb.Append($"<div id=\"{repoName}\" class=\"accordion-collapse collapse\">\r\n      <div class=\"accordion-body\">");
             if (readmeString == null) return "<span></span>";
             string[] splittedReadme = SplitByLane(readmeString);
             foreach (string line in splittedReadme)
@@ -36,7 +49,7 @@ namespace PersonalWebsite.Helpers
                     sb.Append(isCode ? $"{line}\r\n" : $"<span>{line}</span>");
                 }
             }
-            sb.Append("</div>");
+            sb.Append("</div></div></div>");
             return sb.ToString();
         }
 

@@ -45,12 +45,12 @@
     </div>
 
     <div class="card index">
-        <h5 style="margin-left: calc(var(--bs-gutter-x)* .5)">Education</h5>
+        <h1 style="margin-left: calc(var(--bs-gutter-x)* .5)">Education</h1>
         @foreach (var education in Model.Education)
         {
-            <h4 style="margin-left: calc(var(--bs-gutter-x)* .5)">@education.UniversityName</h4>
+            <h2 style="margin-left: calc(var(--bs-gutter-x)* .5)">@education.UniversityName</h2>
             <h3 style="margin-left: calc(var(--bs-gutter-x)* .5)">Thesis: @education.Thesis</h3>
-            <h2 style="margin-left: calc(var(--bs-gutter-x)* .5)">@education.Description</h2>
+            <h4 style="margin-left: calc(var(--bs-gutter-x)* .5)">@education.Description</h4>
         }
     </div>
 
