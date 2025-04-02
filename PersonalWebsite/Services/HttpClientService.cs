@@ -11,8 +11,12 @@ namespace PersonalWebsite.Services
             _httpClient = new HttpClient();
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             _httpClient.DefaultRequestHeaders.UserAgent.TryParseAdd("request");
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", configuration["GithubToken"]);
-            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("MyApp/1.0");
+            var token = configuration["GithubToken"];
+            if (token != null)
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", configuration["GithubToken"]);
+                _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("MyApp/1.0");
+            }
         }
 
         public async Task<string> GetAsync(string url)
