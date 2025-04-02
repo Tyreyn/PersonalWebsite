@@ -7,39 +7,47 @@
 
 <div class="card main">
     <div class="card index">
-        <h5 style="margin-left: calc(var(--bs-gutter-x)* .5)">Skills</h5>
-        <h2 style ="margin-left: calc(var(--bs-gutter-x)* .5)">@Html.Raw(ViewData["ProgrammingLanguage"])</h2>
-        <h1 style="margin-left: calc(var(--bs-gutter-x)* .5)">@ViewData["ToolFramework"]</h1>
+        <h1 style="padding-left: calc(var(--bs-gutter-x)* .5)">Skills</h1>
+        <div>
+            <h2 style="padding-left: calc(var(--bs-gutter-x)* .5); border-bottom: 1px solid #e5e5e5;">ProgrammingLanguage</h2>
+            <h3 style="padding-left: calc(var(--bs-gutter-x)* .5);">@Html.Raw(ViewData["ProgrammingLanguage"])</h3>
+        </div>
+        <div>
+            <h2 style="padding-left: calc(var(--bs-gutter-x)* .5); border-bottom: 1px solid #e5e5e5;">Tool/Framework</h2>
+            <h3 style="padding-left: calc(var(--bs-gutter-x)* .5);">@ViewData["ToolFramework"]</h3>
+        </div>
     </div>
 
     <div class="card index">
         <div class="container-fluid" style="align-content:center;">
             <div class="row">
-                <h5>Professional experience</h5>
+                <h1>Professional experience</h1>
             </div>
             @foreach (var proExp in Model.ProfessionalExperience)
             {
-                <div class="row">
-                    <h4>@proExp.Company</h4>
-                </div>
-                <div class="row" style="flex-direction: row; justify-content: space-between;">
-                    <div class="col" style="display:contents">
-                        <h3 style="padding-left: inherit; margin-top: auto; margin-bottom: auto;">
-                            @proExp.Position
-                        </h3>
+                <div class="job">
+                    <div class="row">
+                        <h2 style="margin-bottom: 0px;">@proExp.Company</h2>
                     </div>
-                    <div class="col" style="display:contents">
-                        <h2 style="padding-right: inherit; margin-top: auto; margin-bottom: auto;">
-                            @proExp.StartDate - @proExp.EndDate
-                        </h2>
+                    <div class="row">
+                        <div class="col" style="display:contents">
+                            <h3 style="padding-left: inherit; margin-top: auto; margin-bottom: auto;">
+                                @proExp.Position
+                            </h3>
+                        </div>
+                        <div class="col" style="display:contents">
+                            <h3 style="padding-right: inherit; margin-top: auto; margin-bottom: auto;">
+                                @proExp.StartDate - @proExp.EndDate
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (string bpoint in proExp.BPoints)
+                        {
+                            <h5 class="row" style="padding-left: inherit; margin-left:auto;">∘ @bpoint</h5>
+                        }
                     </div>
                 </div>
-                <div class="row">
-                    @foreach(string bpoint in proExp.BPoints){
-                        <h1 class="row" style="padding-left: inherit; margin-left:auto;">⬤ @bpoint</h1>
-                    }
-                </div>
-
             }
         </div>
     </div>
@@ -48,9 +56,10 @@
         <h1 style="margin-left: calc(var(--bs-gutter-x)* .5)">Education</h1>
         @foreach (var education in Model.Education)
         {
-            <h2 style="margin-left: calc(var(--bs-gutter-x)* .5)">@education.UniversityName</h2>
-            <h3 style="margin-left: calc(var(--bs-gutter-x)* .5)">Thesis: @education.Thesis</h3>
-            <h4 style="margin-left: calc(var(--bs-gutter-x)* .5)">@education.Description</h4>
+            <div style="border-bottom: 1px solid #e5e5e5; margin-bottom: 4px">
+                <h3 style="margin-left: calc(var(--bs-gutter-x)* .5); margin-bottom: 1px;">@education.UniversityName - @education.Description</h3>
+                <h5 style="margin-left: calc(var(--bs-gutter-x)* .75); margin-bottom: 1px;">Thesis: @education.Thesis</h5>
+            </div>
         }
     </div>
 

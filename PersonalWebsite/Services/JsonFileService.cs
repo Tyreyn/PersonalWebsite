@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using PersonalWebsite.Models;
 
-namespace PersonalWebsite.Services.FileManagement
+namespace PersonalWebsite.Services
 {
     public class JsonFileService
     {

@@ -1,14 +1,15 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json.Linq;
 using PersonalWebsite.Helpers;
+using PersonalWebsite.Interfaces;
 using PersonalWebsite.Models;
 using PersonalWebsite.Models.DataObjects;
-using PersonalWebsite.Services.FileManagement;
-using PersonalWebsite.Services.GithubApi;
+using PersonalWebsite.Services;
 
 namespace PersonalWebsite.Controllers
 {
@@ -22,13 +23,13 @@ namespace PersonalWebsite.Controllers
 
         private readonly JsonFileService jsonFileService;
 
-        private readonly RepositoryDownloaderService repositoryDownloader;
+        private readonly IRepositoryDownloaderService repositoryDownloader;
 
         private readonly string convertedReadmeCookieKey = "readme";
 
         private readonly List<string> ConvertedReadmeList = new List<string>();
 
-        public HomeController(ILogger<HomeController> logger, JsonFileService jsonFileService, RepositoryDownloaderService repositoryDownloader)
+        public HomeController(ILogger<HomeController> logger, JsonFileService jsonFileService, IRepositoryDownloaderService repositoryDownloader)
         {
             _logger = logger;
             this.jsonFileService = jsonFileService;
@@ -43,14 +44,7 @@ namespace PersonalWebsite.Controllers
             StringBuilder stringBuilder = new StringBuilder();
             foreach (ProgrammingLanguage pl in personalInformationModel.Skills.ProgrammingLanguages)
             {
-                StringBuilder ratingStringBuilder = new StringBuilder();
-                int tmp = int.Parse(pl.Proficiency);
-                for (int i = 0; i < 10; i++)
-                {
-                    ratingStringBuilder.Append(tmp > 0 ? "<span class=\"bi bi-circle-fill\"></span>\r\n" : "<span class=\"bi bi-circle\"></span>\r\n");
-                    tmp--;
-                }
-                stringBuilder.Append(pl.Name + " Proficiency " + ratingStringBuilder.ToString() + "<br></br>");
+                stringBuilder.Append("∘ " + pl.Name + " proficiency: " + pl.Proficiency + "<br />");
             }
 
             ViewData["ProgrammingLanguage"] = stringBuilder.ToString();

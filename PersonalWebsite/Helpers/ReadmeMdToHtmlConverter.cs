@@ -19,8 +19,8 @@ namespace PersonalWebsite.Helpers
                 "aria-expanded=\"false\" " +
                 $"aria-controls=\"{repoName}\">" +
                 $"<div class=\"container text-center\">" +
-                $"<div class=\"row\"><h1 class=\"col-4\">{repoName}</h1></div> <div><h5 class=\".text-muted col-8\">{string.Join(", ", repoLanguages)} </h5></div>" +
-                $"<div class=\"row\">{description}</div>" +
+                $"<div class=\"row\"><h1 class=\"col-6\">{repoName}</h1> <h5 class=\"accordion-language col-6\">{string.Join(", ", repoLanguages)} </h5></div>" +
+                $"<div class=\"row accordion-description\">{description}</div>" +
                 $"</div>" +
                 "</button></h2>");
             sb.Append($"<div id=\"{repoName}\" class=\"accordion-collapse collapse\">\r\n      <div class=\"accordion-body\">");

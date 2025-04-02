@@ -3,8 +3,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using PersonalWebsite.Controllers;
 using PersonalWebsite.Models;
-using PersonalWebsite.Services.FileManagement;
-using PersonalWebsite.Services.GithubApi;
+using PersonalWebsite.Services;
 
 namespace PersonalWebsiteTests
 {

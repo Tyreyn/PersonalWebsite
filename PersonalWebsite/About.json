@@ -10,12 +10,12 @@
 			{
 				"Name": "C#",
 				"PictureUrl": "",
-				"Proficiency": "7"
+				"Proficiency": "Excellent"
 			},
 			{
 				"Name": "Java",
 				"PictureUrl": "",
-				"Proficiency": "3"
+				"Proficiency": "Familiar"
 			},
 			{
 				"Name": "JavaScript",
@@ -25,12 +25,12 @@
 			{
 				"Name": "Python",
 				"PictureUrl": "",
-				"Proficiency": "3"
+				"Proficiency": "Proficient"
 			},
 			{
 				"Name": "C/C++",
 				"PictureUrl": "",
-				"Proficiency": "3"
+				"Proficiency": "Familiar"
 			}
 		],
 		"ToolsFrameworks": [
