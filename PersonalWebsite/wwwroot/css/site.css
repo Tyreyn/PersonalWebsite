@@ -167,6 +167,10 @@ div.index {
     padding-bottom: var(--bs-card-spacer-y);
 }
 
+.card-body span {
+    text-align: left ; 
+}
+
 div.card.index:hover {
     box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
     transform: translateY(-5px);

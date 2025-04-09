@@ -9,12 +9,21 @@
     <div class="card index">
         <h1 style="padding-left: calc(var(--bs-gutter-x)* .5)">Skills</h1>
         <div>
-            <h2 style="padding-left: calc(var(--bs-gutter-x)* .5); border-bottom: 1px solid #e5e5e5;">ProgrammingLanguage</h2>
+            <h2 style="padding-left: calc(var(--bs-gutter-x)* .5); border-bottom: 1px solid #e5e5e5;">Programming Language</h2>
             <h3 style="padding-left: calc(var(--bs-gutter-x)* .5);">@Html.Raw(ViewData["ProgrammingLanguage"])</h3>
         </div>
-        <div>
+        <div class="container mt-4">
             <h2 style="padding-left: calc(var(--bs-gutter-x)* .5); border-bottom: 1px solid #e5e5e5;">Tool/Framework</h2>
-            <h3 style="padding-left: calc(var(--bs-gutter-x)* .5);">@ViewData["ToolFramework"]</h3>
+            <div class="row text-center mt-4" style="justify-content: space-evenly;">
+                @foreach (var toolFramework in Model.Skills.ToolsFrameworks)
+                {
+                    <div class="col-md-2 col-sm-3 col-4" style="max-width: fit-content; align-content: center; padding: 1px; margin: 1px;">
+                        <div class="card p-3 shadow-sm" style="background: transparent; border-radius: 30px;">
+                            <img src="@toolFramework.PictureUrl" alt="@toolFramework.Name" title="@toolFramework.Name" class="img-fluid" style="max-height: 32px; width: auto; max-width: 100%;">
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
     </div>
 
@@ -56,8 +65,9 @@
         <h1 style="margin-left: calc(var(--bs-gutter-x)* .5)">Education</h1>
         @foreach (var education in Model.Education)
         {
-            <div style="border-bottom: 1px solid #e5e5e5; margin-bottom: 4px">
-                <h3 style="margin-left: calc(var(--bs-gutter-x)* .5); margin-bottom: 1px;">@education.UniversityName - @education.Description</h3>
+            <div style="margin-bottom: 4px">
+                <h2 style="margin-left: calc(var(--bs-gutter-x)* .5); margin-bottom: 1px; border-bottom: 1px solid #e5e5e5;">@education.UniversityName</h2>
+                <h3 style="margin-left: calc(var(--bs-gutter-x)* .5); margin-bottom: 1px;">@education.Description</h3>
                 <h5 style="margin-left: calc(var(--bs-gutter-x)* .75); margin-bottom: 1px;">Thesis: @education.Thesis</h5>
             </div>
         }

@@ -7,9 +7,15 @@ namespace PersonalWebsite.Helpers
 {
     public static class ReadmeMdToHtmlConverter
     {
-        public static string Convert(string readmeString, string repoName, IList<string> repoLanguages, string description)
+        public static string Convert(
+            string readmeString,
+            string repoName,
+            IList<string> repoLanguages,
+            string description,
+            string repoUrl)
         {
             bool isCode = false;
+            bool firstHeader = true;
             StringBuilder sb = new StringBuilder("<div class=\"accordion-item\">");
             sb.Append("<h2 class=\"accordion-header\">" +
                 "<button class=\"accordion-button collapsed\" " +
@@ -19,7 +25,8 @@ namespace PersonalWebsite.Helpers
                 "aria-expanded=\"false\" " +
                 $"aria-controls=\"{repoName}\">" +
                 $"<div class=\"container text-center\">" +
-                $"<div class=\"row\"><h1 class=\"col-6\">{repoName}</h1> <h5 class=\"accordion-language col-6\">{string.Join(", ", repoLanguages)} </h5></div>" +
+                $"<div class=\"row\"><h1 class=\"col-6\">{repoName}</h1>" +
+                $"<h5 class=\"accordion-language col-6\">{string.Join(", ", repoLanguages)} </h5></div>" +
                 $"<div class=\"row accordion-description\">{description}</div>" +
                 $"</div>" +
                 "</button></h2>");
@@ -33,7 +40,10 @@ namespace PersonalWebsite.Helpers
                 if (line.StartsWith("#"))
                 {
                     int headCount = CheckForHeader(line);
-                    sb.Append($"<h{headCount}>{line.Replace("#", string.Empty)}</h{headCount}>");
+                    sb.Append(firstHeader ?
+                        $"<h{headCount}><a href=\"{repoUrl}\" target=\"_blank\">{line.Replace("#", string.Empty)}</a></h{headCount}>" :
+                        $"<h{headCount}>{line.Replace("#", string.Empty)}</h{headCount}>");
+                    firstHeader = false;
                 }
                 else if (line.Contains("png") || line.Contains("jpg"))
                 {

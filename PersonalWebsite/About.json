@@ -9,106 +9,106 @@
 		"ProgrammingLanguages": [
 			{
 				"Name": "C#",
-				"PictureUrl": "",
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png?20180210215736",
 				"Proficiency": "Excellent"
 			},
 			{
 				"Name": "Java",
-				"PictureUrl": "",
+				"PictureUrl": "https://icon2.cleanpng.com/20180605/bfp/aa9zxztd8.webp",
 				"Proficiency": "Familiar"
 			},
 			{
 				"Name": "JavaScript",
-				"PictureUrl": "",
-				"Proficiency": "3"
+				"PictureUrl": "https://icon2.cleanpng.com/20180605/qhh/aa9xgcxy7.webp",
+				"Proficiency": "Familiar"
 			},
 			{
 				"Name": "Python",
-				"PictureUrl": "",
+				"PictureUrl": "https://icon2.cleanpng.com/20180706/kfr/aaxxkj420.webp",
 				"Proficiency": "Proficient"
 			},
 			{
 				"Name": "C/C++",
-				"PictureUrl": "",
+				"PictureUrl": "https://icon2.cleanpng.com/20180324/dsq/avcuwncqw.webp",
 				"Proficiency": "Familiar"
 			}
 		],
 		"ToolsFrameworks": [
 			{
 				"Name": "React",
-				"PictureUrl": ""
+				"PictureUrl": "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png"
 			},
 			{
 				"Name": "Blazor",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Blazor.png/960px-Blazor.png"
 			},
 			{
 				"Name": "HTML",
-				"PictureUrl": ""
+				"PictureUrl": "https://images.seeklogo.com/logo-png/20/2/html5-logo-png_seeklogo-206834.png"
 			},
 			{
 				"Name": "CSS",
-				"PictureUrl": ""
+				"PictureUrl": "https://images.seeklogo.com/logo-png/18/2/css3-logo-png_seeklogo-186678.png"
 			},
 			{
 				"Name": "ASP.NET",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Microsoft_.NET_logo.png"
 			},
 			{
 				"Name": "Spring Boot",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Spring_Boot.svg/1200px-Spring_Boot.svg.png"
 			},
 			{
 				"Name": "Unity",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Unity_2021.svg/1920px-Unity_2021.svg.png"
 			},
 			{
 				"Name": "Git",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1920px-Git-logo.svg.png"
 			},
 			{
 				"Name": "Github Actions",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/1024px-GitHub_Invertocat_Logo.svg.png"
 			},
 			{
 				"Name": "Swagger",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png"
 			},
 			{
 				"Name": "MongoDB",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/MongoDB_Fores-Green.svg/1920px-MongoDB_Fores-Green.svg.png"
 			},
 			{
 				"Name": "MySQL",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/MySQL_logo.svg/1280px-MySQL_logo.svg.png"
 			},
 			{
 				"Name": "Microsoft SQL Server",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/MSSQLS_icon.svg/1024px-MSSQLS_icon.svg.png"
 			},
 			{
 				"Name": "Nunit",
-				"PictureUrl": ""
+				"PictureUrl": "https://www.automatetheplanet.com/wp-content/uploads/2023/04/nUnit-logo.png"
 			},
 			{
 				"Name": "xUnit",
-				"PictureUrl": ""
+				"PictureUrl": "https://github.com/xunit/media/blob/main/logo-128-transparent.png?raw=true"
 			},
 			{
 				"Name": "Playwright",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Playwright_Logo.svg/1920px-Playwright_Logo.svg.png"
 			},
 			{
 				"Name": "Selenium",
-				"PictureUrl": ""
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Selenium_logo.svg/1920px-Selenium_logo.svg.png"
 			},
 			{
 				"Name": "Entity Framework",
-				"PictureUrl": ""
+				"PictureUrl": "https://codeopinion.com/wp-content/uploads/2017/10/Bitmap-MEDIUM_Entity-Framework-Core-Logo_2colors_Square_Boxed_RGB.png"
 			},
 			{
 				"Name": "Dapper",
-				"PictureUrl": ""
+				"PictureUrl": "https://miro.medium.com/v2/resize:fit:4800/format:webp/1*IXztyxJWvl0fdVQdi1wKhg.jpeg"
 			}
 		]
 	},

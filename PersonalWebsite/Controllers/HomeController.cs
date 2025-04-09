@@ -77,7 +77,8 @@ namespace PersonalWebsite.Controllers
                     this.repositoryDownloader.DownloadReadme(Repos[index].name).Result,
                     Repos[index].name,
                     this.repositoryDownloader.DownloadLanguages(Repos[index].languages_url).Result,
-                    Repos[index].description);
+                    Repos[index].description,
+                    Repos[index].html_url);
                 ConvertedReadmeList.Add(convertedReadmeString);
                 ViewBag.ConvertedReadme = convertedReadmeString;
                 Console.WriteLine(index);
