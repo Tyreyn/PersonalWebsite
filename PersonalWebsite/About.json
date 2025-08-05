@@ -118,10 +118,7 @@
 			"StartDate": "April 2025",
 			"EndDate": "currently",
 			"Company": "Speeron Polska",
-			"BPoints": [
-				"Created animation of the prepared machine model.",
-				"Prepared basic functionalities (for example moving, looking, interactions)."
-			]
+			"BPoints": []
 		},
 		{
 			"Position": "Junior Test Development Engineer",
