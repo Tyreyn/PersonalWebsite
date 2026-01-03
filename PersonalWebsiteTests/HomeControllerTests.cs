@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Moq;
 using PersonalWebsite.Controllers;
@@ -16,11 +17,11 @@ namespace PersonalWebsiteTests
             // Arrange
             var mockLogger = new Mock<ILogger<HomeController>>();
             var mockHttpClientService = new Mock<IHttpClientService>();
-            var mockRepositoryDownloader = new RepositoryDownloaderService(mockHttpClientService.Object);
+            var mockMemoryCacheService = new Mock<IMemoryCache>();
+            var mockRepositoryDownloader = new RepositoryDownloaderService(mockHttpClientService.Object, mockMemoryCacheService.Object);
 
             JsonFileService jsonFileService = new JsonFileService();
-            ILogger<HomeController> logger = mockLogger.Object;
-            var controller = new HomeController(logger, jsonFileService, mockRepositoryDownloader);
+            var controller = new HomeController(jsonFileService, mockRepositoryDownloader);
 
             // Act
             var result = controller.Index();
