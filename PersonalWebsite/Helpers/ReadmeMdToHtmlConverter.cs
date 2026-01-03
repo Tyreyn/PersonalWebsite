@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.FileSystemGlobbing.Internal;
-using Microsoft.Extensions.Primitives;
-using System.Text;
+﻿using System.Text;
 using System.Text.RegularExpressions;
 
 namespace PersonalWebsite.Helpers
@@ -8,7 +6,7 @@ namespace PersonalWebsite.Helpers
     public static class ReadmeMdToHtmlConverter
     {
         public static string Convert(
-            string readmeString,
+            string? readmeString,
             string repoName,
             IList<string> repoLanguages,
             string description,
@@ -16,7 +14,7 @@ namespace PersonalWebsite.Helpers
         {
             bool isCode = false;
             bool firstHeader = true;
-            StringBuilder sb = new StringBuilder("<div class=\"accordion-item\">");
+            StringBuilder sb = new("<div class=\"accordion-item\">");
             sb.Append("<h2 class=\"accordion-header\">" +
                 "<button class=\"accordion-button collapsed\" " +
                 "type=\"button\" " +
@@ -87,7 +85,7 @@ namespace PersonalWebsite.Helpers
 
         private static string CheckForNewImage(string line, string repoName)
         {
-            Regex rgx = new Regex("[\\w]+\\.[\"png\"|\"jpg\"]+");
+            Regex rgx = new("[\\w]+\\.[\"png\"|\"jpg\"]+");
             Match match = rgx.Match(line);
             return string.Format($"<img class=\"readmeImg\" src=\"https://raw.githubusercontent.com/Tyreyn/{repoName}/main/{match.Value}\">");
         }

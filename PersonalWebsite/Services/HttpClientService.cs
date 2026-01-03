@@ -5,7 +5,8 @@ namespace PersonalWebsite.Services
 {
     public class HttpClientService : IHttpClientService
     {
-        private readonly HttpClient? _httpClient;
+        private readonly HttpClient _httpClient;
+
         public HttpClientService(IConfiguration configuration)
         {
             _httpClient = new HttpClient();
@@ -19,7 +20,7 @@ namespace PersonalWebsite.Services
             }
         }
 
-        public async Task<string> GetAsync(string url)
+        public async Task<string?> GetAsync(string url)
         {
             try
             {

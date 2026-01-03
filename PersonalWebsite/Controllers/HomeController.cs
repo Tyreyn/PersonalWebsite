@@ -1,10 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json.Linq;
 using PersonalWebsite.Helpers;
 using PersonalWebsite.Interfaces;
 using PersonalWebsite.Models;
@@ -13,35 +10,20 @@ using PersonalWebsite.Services;
 
 namespace PersonalWebsite.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(JsonFileService jsonFileService, IRepositoryDownloaderService repositoryDownloader) : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        private List<Repositories> Repos = new List<Repositories>();
+        private List<Repositories> Repos = [];
 
         private readonly string repositoryCookieKey = "repos";
-
-        private readonly JsonFileService jsonFileService;
-
-        private readonly IRepositoryDownloaderService repositoryDownloader;
-
         private readonly string convertedReadmeCookieKey = "readme";
 
-        private readonly List<string> ConvertedReadmeList = new List<string>();
-
-        public HomeController(ILogger<HomeController> logger, JsonFileService jsonFileService, IRepositoryDownloaderService repositoryDownloader)
-        {
-            _logger = logger;
-            this.jsonFileService = jsonFileService;
-            this.repositoryDownloader = repositoryDownloader;
-
-        }
+        private readonly List<string> ConvertedReadmeList = [];
 
         [Route("")]
         public IActionResult Index()
         {
-            PersonalInformationModel personalInformationModel = this.jsonFileService.GetPersonalInformationFromFile();
-            StringBuilder stringBuilder = new StringBuilder();
+            PersonalInformationModel personalInformationModel = jsonFileService.GetPersonalInformationFromFile();
+            StringBuilder stringBuilder = new();
             foreach (ProgrammingLanguage pl in personalInformationModel.Skills.ProgrammingLanguages)
             {
                 stringBuilder.Append("∘ " + pl.Name + " proficiency: " + pl.Proficiency + "<br />");
@@ -57,26 +39,38 @@ namespace PersonalWebsite.Controllers
             return View(personalInformationModel);
         }
 
-        public IActionResult Portfolio()
+        public async Task<IActionResult> Portfolio()
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(repositoryCookieKey)))
             {
-                List<Repositories> repos = this.repositoryDownloader.DownloadAllRepositories().Result;
+                var repos = await repositoryDownloader.DownloadAllRepositories();
                 HttpContext.Session.SetString(repositoryCookieKey, JsonSerializer.Serialize(repos));
             }
             return View();
         }
 
-        public ActionResult GetDynamicContent(int index)
+        public async Task<ActionResult> GetDynamicContent(int index)
         {
             ViewBag.ConvertedReadme = new List<string>();
-            Repos = JsonSerializer.Deserialize<List<Repositories>>(HttpContext.Session.GetString(repositoryCookieKey));
-            if (index < Repos.Count)
+            var reposJson = HttpContext.Session.GetString(repositoryCookieKey);
+            if (string.IsNullOrEmpty(reposJson))
             {
-                string convertedReadmeString = ReadmeMdToHtmlConverter.Convert(
-                    this.repositoryDownloader.DownloadReadme(Repos[index].name).Result,
+                return Content("");
+            }
+
+            var deserializedRepos = JsonSerializer.Deserialize<List<Repositories>>(reposJson);
+            if (deserializedRepos is null)
+            {
+                return Content("");
+            }
+
+            Repos = deserializedRepos;
+            if (index < Repos?.Count)
+            {
+                var convertedReadmeString = ReadmeMdToHtmlConverter.Convert(
+                    await repositoryDownloader.DownloadReadme(Repos[index].name),
                     Repos[index].name,
-                    this.repositoryDownloader.DownloadLanguages(Repos[index].languages_url).Result,
+                    repositoryDownloader.DownloadLanguages(Repos[index].languages_url).Result,
                     Repos[index].description,
                     Repos[index].html_url);
                 ConvertedReadmeList.Add(convertedReadmeString);

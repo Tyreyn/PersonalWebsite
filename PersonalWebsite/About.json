@@ -84,7 +84,7 @@
 			},
 			{
 				"Name": "Microsoft SQL Server",
-				"PictureUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/MSSQLS_icon.svg/1024px-MSSQLS_icon.svg.png"
+				"PictureUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Microsoft_SQL_Server_2025_icon.svg/250px-Microsoft_SQL_Server_2025_icon.svg.png"
 			},
 			{
 				"Name": "Nunit",
@@ -118,7 +118,12 @@
 			"StartDate": "April 2025",
 			"EndDate": "currently",
 			"Company": "Speeron Polska",
-			"BPoints": []
+			"BPoints": [
+				"Developed Azure DevOps backup via API (including sprints, tasks and repo",
+				"Developed adapter for Whatsapp Business API to integrate with company application.",
+				"Implemented tests automation in Java with Playwright framework.",
+				"Worked in scrum methodology."
+			]
 		},
 		{
 			"Position": "Junior Test Development Engineer",

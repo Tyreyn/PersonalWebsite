@@ -2,14 +2,14 @@
 {
     public class ProfessionalExperience
     {
-        public string Position { get; set; }
+        public required string Position { get; set; }
 
-        public string StartDate { get; set; }
+        public required string StartDate { get; set; }
 
-        public string EndDate { get; set; }
+        public required string EndDate { get; set; }
 
-        public string Company { get; set; }
+        public required string Company { get; set; }
 
-        public virtual IList<string> BPoints { get; set; }
+        public virtual IList<string>? BPoints { get; set; }
     }
 }

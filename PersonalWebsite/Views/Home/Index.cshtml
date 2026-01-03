@@ -51,10 +51,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        @foreach (string bpoint in proExp.BPoints)
-                        {
-                            <h5 class="row" style="padding-left: inherit; margin-left:auto;">∘ @bpoint</h5>
-                        }
+                        @if(proExp.BPoints != null)
+                            @foreach (string bpoint in proExp.BPoints)
+                            {
+                                <h5 class="row" style="padding-left: inherit; margin-left:auto;">∘ @bpoint</h5>
+                            }
                     </div>
                 </div>
             }

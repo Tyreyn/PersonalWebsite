@@ -2,6 +2,6 @@
 {
     public interface IHttpClientService
     {
-        Task<string> GetAsync(string url);
+        Task<string?> GetAsync(string url);
     }
 }

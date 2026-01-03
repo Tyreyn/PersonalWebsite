@@ -2,14 +2,14 @@
 {
     public class Education
     {
-        public string UniversityName { get; set; }
+        public required string UniversityName { get; set; }
 
-        public string StartDate { get; set; }
+        public required string StartDate { get; set; }
 
-        public string EndDate { get; set; }
+        public required string EndDate { get; set; }
 
-        public string Description { get; set; }
+        public required string Description { get; set; }
 
-        public string Thesis { get; set; }
+        public required string Thesis { get; set; }
     }
 }

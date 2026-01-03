@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var githubApiToken = builder.Configuration["GithubToken"];
 builder.Services.AddControllersWithViews();
+builder.Services.AddHostedService<RepositoryCacheRefresherService>();
 builder.Services.AddSingleton<JsonFileService>();
 builder.Services.AddSingleton<IHttpClientService, HttpClientService>();
 builder.Services.AddSingleton<IRepositoryDownloaderService, RepositoryDownloaderService>();
